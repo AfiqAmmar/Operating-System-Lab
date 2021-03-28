@@ -16,7 +16,7 @@ def lruPlacement(x):
         print(temp)
 
 count = 0
-for x in range(len(reference)): #0-4
+for x in range(len(reference)):
     exists = reference[x] in temp
     if exists:
         print(temp, "hit", reference[x])
