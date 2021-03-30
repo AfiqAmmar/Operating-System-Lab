@@ -29,7 +29,7 @@ for i in range (0,len(reference)):
         q.popQueue()
         q.insertQueue(reference[i])
 
-    print("time ",i,":",end="")
+    print("time :",i,end=" ")
     print("Reference: ",reference[i])
     q.printQueue()
     print()
