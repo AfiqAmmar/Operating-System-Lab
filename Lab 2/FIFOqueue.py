@@ -19,12 +19,14 @@ class Queue:
             print(items," | ",end='')
 
 q = Queue()
-pageFrame = 3
-reference = [3,7,12,2,8,9]
+pageFrame = 2
+reference = [3,7,12,2,8,9,12,34,12,34,21]
+success = 0
 
 for i in range (0,len(reference)):
     if(q.size()<pageFrame):
         q.insertQueue(reference[i])
+        success +=1
     else:
         q.popQueue()
         q.insertQueue(reference[i])
@@ -34,6 +36,10 @@ for i in range (0,len(reference)):
     q.printQueue()
     print()
 
+successrate = success/len(reference)*100
+fail = 100 - successrate
+print("Success rate is:",round(successrate,2),"%")
+print("Failure rate is:",round(fail,2),"%")
 
 
 
