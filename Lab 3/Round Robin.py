@@ -1,5 +1,5 @@
-ReadyQueue= {1:7,2:5,3:6,4:7}
-ReadyQueueRem= {1:7,2:5,3:6,4:7}
+ReadyQueue= {1:7,2:5,3:6,4:7}#to show readyqueue popping
+ReadyQueueRem= {1:7,2:5,3:6,4:7}#static readyqueue
 WaitingTime={}
 TurnAroundTime={}
 time=0
@@ -30,10 +30,15 @@ while len(ReadyQueue)>0:
     print(ReadyQueue)
     print("\n")
 
+for i in ReadyQueueRem.keys():
+    TurnAroundTime[i]=(WaitingTime[i] - ReadyQueueRem[i])
+
+print("turn around time: "+str(TurnAroundTime))
 print("jobs' waiting times: "+ str(WaitingTime))
 
-for i in range(1,len(ReadyQueueRem)+1):
-    TurnAroundTime[i]=(WaitingTime[i] - ReadyQueueRem[i])
-print("turn around time: "+str(TurnAroundTime))
+print("Processes    Burst Time     Waiting", "Time    Turn-Around Time")
+for i in ReadyQueueRem.keys():
+        print(" ", i , "\t\t", ReadyQueueRem[i], "\t\t", WaitingTime[i], "\t\t", TurnAroundTime[i])
+
 
     
