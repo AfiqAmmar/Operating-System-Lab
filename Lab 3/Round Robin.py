@@ -3,7 +3,7 @@ ReadyQueueRem= {1:7,2:5,3:6,4:7}#static readyqueue
 WaitingTime={}
 TurnAroundTime={}
 time=0
-quantumTime=7541
+quantumTime=2
 
 while len(ReadyQueue)>0:
     iterator=list(ReadyQueue.keys())[0]#to get first key of the dictionary
