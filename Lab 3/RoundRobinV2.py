@@ -12,7 +12,6 @@ def findWaitingTime(processes, n, bt, wt, quantum):
   
         # Traverse all processes one by one repeatedly 
         for i in range(n):
-            print(str(rem_bt))
             # If burst time of a process is greater than 0 then only need to process further 
             if (rem_bt[i] > 0) :
                 done = False # There is a pending process
@@ -84,5 +83,5 @@ if __name__ =="__main__":
     burst_time = [10, 5, 8] 
   
     # Time quantum 
-    quantum = 2; 
+    quantum = 7345; 
     findavgTime(proc, n, burst_time, quantum)
