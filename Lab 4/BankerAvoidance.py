@@ -10,6 +10,7 @@ alloc = [[0, 1, 0],  # P0
          [0, 0, 2]]  # P4
 
 # Require each processes to declare MAX number of resources it may need
+#needs advance knowledge of maximum needs
 #       A  B  C
 max = [[7, 5, 3],  # P0
        [3, 2, 2],  # P1
@@ -23,12 +24,13 @@ totalAllocation = [0]*m
 
 for i in range(n):
     for j in range(m):
-        totalAllocation[j] += alloc[i][j]
-print("Total Allocation", totalAllocation)
+        totalAllocation[j] += alloc[i][j]  # A ,B,C
+print("Total Allocation", totalAllocation) # [7,2,5]
 
+#initialized list of available resources for each device
 avail = [0]*m
 for i in range(m):
-    avail[i] = total[i] - totalAllocation[i]
+    avail[i] = total[i] - totalAllocation[i]  # 10 , 5, 7 - 7 , 2, 5 = [3,3,2] (a-a,b-b,c-c)
 print("Available Devices", avail, "\n")
 
 # safe state -> no deadlock
@@ -39,8 +41,10 @@ print("Available Devices", avail, "\n")
 executedProcess = [0]*n  # list for executed process
 processState = [0]*n     # list for process state either 1(executed) or 0(non executed yet)
 
+#initialize 2d array matrix for need. there is calculation to 
 need = [[0 for i in range(m)] for i in range(n)]
 
+#this for loop is to count the need resources for each process
 for i in range(n):                              # [[7, 4, 3],  max matrix - allocation matrix = need matrix
     for j in range(m):                          #  [1, 2, 2],
         need[i][j] = max[i][j] - alloc[i][j]    #  [6, 0, 0],
