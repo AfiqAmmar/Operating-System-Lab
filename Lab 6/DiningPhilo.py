@@ -1,28 +1,29 @@
-import random
+def add_values_in_dict(sample_dict, key, list_of_values):
+    """Append multiple values to a key in the given dictionary"""
+    if key not in sample_dict:
+        sample_dict[key] = list()
+    sample_dict[key].extend(list_of_values)
+    return sample_dict
 
-chopsticks=[1]*5
-philosophers=[0]*5
+philosophers={}
+jobs=5
 
-JobCompleted=0
-while(JobCompleted!=5):
-    hungry=[0]*5
-    for philosopher in range(len(philosophers)):
-        hungry=random.randint(0,2)
-        philosophers[philosopher]=hungry
-        if philosophers[philosopher]==1:
-            print("Philosohper "+str(philosopher)+" is hungry")
-            if chopsticks[philosopher]==1 and chopsticks[(philosopher+1)%5]==1:
-                chopsticks[philosopher]=0
-                chopsticks[(philosopher+1)%5]=0
-                JobCompleted+=1
-                print("Philosohper "+str(philosopher)+" able to eat")
-            else:
-                print("Philosohper "+str(philosopher)+" cant eat cause chopstick "+str(chopsticks[philosopher])+ " or "+str(chopsticks[(philosopher+1)%5]))
-        else:
-            print("Philosohper "+str(philosopher)+" aint hungry")
-            continue 
-        print(str(chopsticks))
-            
-            
+for j in range(jobs):
+    philosophers[j]=[j]
+
+print(philosophers)
+
+# for i in philosophers.keys():
+#     RightChopstick=(i+1)%5
+#     for j in philosophers.keys():
+#         if RightChopstick in philosophers.get(j):
+#             value=philosophers.get(j)
+#             value.remove(RightChopstick)
+#             philosophers[j]=value
+#             print(philosophers,"1")
+#             break
+#     print(philosophers,"2")
+#     philosophers = add_values_in_dict(philosophers, i, [RightChopstick])
+#     print(philosophers,"3")
                  
     
