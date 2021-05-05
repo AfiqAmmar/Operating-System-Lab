@@ -20,11 +20,9 @@ class Philosopher(threading.Thread):
 
     def dine(self):
         # if both the forks are free, then philosopher will eat
-        while self.running:
-            self.leftFork.acquire() # wait operation on left fork
-            locked = self.rightFork.acquire(True) # we Place true here to get a return value of true to break from loop
-            if locked: 
-                break 
+        self.leftFork.acquire() # wait operation on left fork
+        self.rightFork.acquire() # we Place true here to get a return value of true to break from loop
+        print("There are enough forks for philosopher %s to eat" %self.index)         
         self.dining()
         #unlock both forks after eating
         self.rightFork.release()
