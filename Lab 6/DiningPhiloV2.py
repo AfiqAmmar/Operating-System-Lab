@@ -42,4 +42,4 @@ for p in philosophers:
     p.start()
 time.sleep(40)
 Philosopher.running = False
-print ("Kedai nak tutup!!.")
+print ("Finishing the process!!.")
