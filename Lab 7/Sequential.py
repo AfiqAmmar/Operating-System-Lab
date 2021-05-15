@@ -1,4 +1,4 @@
-filelength = 10
+filelength = 50
 files = [0]*filelength
 for x in range(files.__len__()):
     files[x] = 0
@@ -37,7 +37,7 @@ while flag == 1:
     choice = True
     while True:
         resume = input(("Do you want to enter more files? (yes/no)"))
-        if resume == 'yes' or resume.upper() == 'YES':
+        if resume == 'yes' or resume == 'YES':
             flag = 1
             break
         elif resume == 'no' or resume == 'NO':
@@ -47,6 +47,7 @@ while flag == 1:
             choice = True
 
 print("Files allocated:")
-for x in range(files.__len__()):
-            print("     Files [",x+1,"]           allocated")
+for x in range(length):
+    print("     Files [",x+1,"]           allocated")
+
 
